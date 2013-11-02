@@ -1,0 +1,13 @@
+{
+  "auth": {
+    "token": "2176291-rtyAQHIHCFUMApeEV99pXe6FDz7bjX5g812FXETOGA",
+    "tokenSecret": "jYRrQgcbKzO1n5XipVBL5s8GOTndM1wsOuZxyeQix8",
+    "consumerKey": "eSYrfGq2idORMvj5BVCeEw",
+    "consumerSecret": "HY0Oz2xUVIvVQH7exJCOURgPE9cOOnAuMZFs2Efv7Yw"
+  },
+  "url": "https://api.twitter.com/1.1/statuses/update.json",
+  "method": "POST",
+  "qs": {
+  	"status": "This tweet came from http://NoFlojs.org."
+  }
+}

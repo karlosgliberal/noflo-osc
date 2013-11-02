@@ -1,0 +1,43 @@
+{
+  "name": "noflo-osc",
+  "description": "Pruebas osc",
+  "author": "karlos g liberal (patxangas) karlosgliberal@gmail.com",
+  "version": "0.0.1",
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/karlosgliberal/noflo-osc.git"
+  },
+  "keywords": [
+    "noflo",
+    "osc"
+  ],
+  "engines": {
+    "node": ">=0.10.5"
+  },
+  "dependencies": {
+    "coffee-script": "1.4.x",
+    "noflo": ">=0.3.4",
+    "chai": "~1.5.0",
+    "noflo-filesystem": "~1.0.2",
+    "noflo-core": "~0.1.3"
+  },
+  "devDependencies": {
+    "mocha": "~1.9.0",
+    "coffeelint": "*",
+    "nock": "0.18.2"
+  },
+  "noflo": {
+    "components": {
+      "OscSend": "./components/OscSend.coffee"
+    }
+  },
+  "scripts": {
+    "pretest": "./node_modules/.bin/coffeelint  -f coffeelint_config.json -r components spec lib",
+    "test": "./node_modules/.bin/mocha --compilers coffee:coffee-script spec/*"
+  }
+}
