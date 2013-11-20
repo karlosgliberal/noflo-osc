@@ -6,16 +6,20 @@ class OscSend extends noflo.LoggingComponent
   constructor: ->
     @ip = null
     @puerto = null
+    @ruta = null
     @msg = null
     @inPorts =
       ip: new noflo.Port
       puerto: new noflo.Port
+      ruta: new noflo.Port
       msg: new noflo.Port
     @outPorts =
       salida: new noflo.Port
 
     @inPorts.ip.on 'data', (data) =>
       @ip = data
+    @inPorts.ruta.on 'data', (data) =>
+      @ruta = data
     @inPorts.puerto.on 'data', (data) =>
       @puerto = data
     @inPorts.msg.on 'data', (data) =>
@@ -28,8 +32,8 @@ class OscSend extends noflo.LoggingComponent
       request: @ip
 
   mensaje: ->
-    sender = new osc.UdpSender(@ip, @puerto);
-    sender.send(@msg);
+    sender = new osc.UdpSender(@ip, @puerto)
+    sender.send(@ruta, 'f', [@msg])
     @outPorts.salida.send @msg
     @outPorts.salida.disconnect()
 
