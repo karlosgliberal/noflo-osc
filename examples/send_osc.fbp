@@ -1,4 +1,4 @@
-'examples/send_new_tweet.json' -> IN ReadFile(ReadFile)
-ReadFile() OUT -> IN TweetPublisher(twitter/RestApi)
-TweetPublisher() OUT -> IN ConsoleLogger(Output)
-TweetPublisher() LOG -> IN ConsoleLogger(Output)
+'127.0.0.1' -> IP ConnectOSC(osc/OscSend)
+'7777' -> PUERTO ConnectOSC()
+'/hola' -> MSG ConnectOSC()
+ConnectOSC() SALIDA -> IN ConsoleLogger(core/Output)

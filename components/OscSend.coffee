@@ -1,35 +1,37 @@
 noflo = require "noflo"
 chai = require "chai"
-twitstream = require "../lib/omgosc"
-querystring = require "querystring"
+osc = require "../lib/omgosc"
 
-
-class Connect extends noflo.Component
-  description: 'Conexion osc'
+class OscSend extends noflo.LoggingComponent
   constructor: ->
+    @ip = null
+    @puerto = null
+    @msg = null
     @inPorts =
-      ip: new noflo.Port 'string'
-      connect: new noflo.Port 'bang'
+      ip: new noflo.Port
+      puerto: new noflo.Port
+      msg: new noflo.Port
     @outPorts =
-      client: new noflo.Port 'object'
+      salida: new noflo.Port
 
     @inPorts.ip.on 'data', (data) =>
-      # Prepare options
-      options = {}
-      if typeof data is 'string'
-        options.ip = data
-      @connectDrone options
+      @ip = data
+    @inPorts.puerto.on 'data', (data) =>
+      @puerto = data
+    @inPorts.msg.on 'data', (data) =>
+      @msg = data
+      do @mensaje unless @msg is null
 
-    @inPorts.connect.on 'data', =>
-      @connectDrone {}
+    @sendLog
+      logLevel: "info"
+      message: "Twitter REST API call finished successfully."
+      request: @ip
 
-  connectDrone: (options) ->
-    # Connect to the drone
-    client = arDrone.createClient options
+  mensaje: ->
+    sender = new osc.UdpSender(@ip, @puerto);
+    sender.send(@msg);
+    @outPorts.salida.send @msg
+    @outPorts.salida.disconnect()
 
-    # Pass it to the output port
-    return unless @outPorts.client.isAttached()
-    @outPorts.client.send client
-    @outPorts.client.disconnect()
+exports.getComponent = -> new OscSend
 
-exports.getComponent = -> new Connect
