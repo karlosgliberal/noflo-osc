@@ -3,7 +3,7 @@
   "description": "OSC components for NoFlo",
   "author": "Karlos g liberal <karlosgliberal@gmail.com>",
   "repo": "karlosgliberal/noflo-osc",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "keywords": [
   ],
   "dependencies": {
