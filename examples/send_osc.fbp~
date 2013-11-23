@@ -1,6 +1,4 @@
 '127.0.0.1' -> IP ConnectOSC(osc/OscSend)
 '7777' -> PUERTO ConnectOSC()
-'/hola' -> RUTA ConnectOSC()
-'s' -> TYPE ConnectOSC()
-'movida' -> MSG ConnectOSC()
+'/hola' -> MSG ConnectOSC()
 ConnectOSC() SALIDA -> IN ConsoleLogger(core/Output)

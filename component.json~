@@ -11,8 +11,6 @@
   },
   "scripts": [
     "components/OscSend.coffee",
-    "components/OscReceiver.coffee",
-    "components/OscMatch.coffee",
     "index.js"
   ],
   "json": [
@@ -21,8 +19,7 @@
   "noflo": {
     "components": {
       "OscSend": "./components/OscSend.coffee",
-      "OscReceiver": "./components/OscReceiver.coffee",
-      "OscMatch": "./components/OscMatch.coffee"
+      "OscReceiver": "./components/OscSend.coffee"
     }
   }
 }

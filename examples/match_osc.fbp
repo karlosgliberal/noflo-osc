@@ -1,0 +1,8 @@
+'/aa' -> PATH oscMatch(osc/OscMatch)
+'/bb' -> PATH oscMatchBB(osc/OscMatch)
+'localhost' -> HOST oscReceiver(osc/OscReceiver)
+'7778' -> PORT oscReceiver()
+oscReceiver() OUT -> IN oscMatch()
+oscMatch() OUT -> IN ConsoleLogger(core/Output)
+oscMatch() MISSED -> IN oscMatchBB()
+oscMatchBB() OUT -> IN ConsoleLogger(core/Output)
