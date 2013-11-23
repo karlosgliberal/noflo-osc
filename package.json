@@ -33,7 +33,9 @@
   },
   "noflo": {
     "components": {
-      "OscSend": "./components/OscSend.coffee"
+      "OscSend": "./components/OscSend.coffee",
+      "OscReceiver": "./components/OscReceiver.coffee",
+      "OscMatch": "./components/OscMatch.coffee"
     }
   },
   "scripts": {

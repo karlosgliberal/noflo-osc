@@ -1,0 +1,3 @@
+'localhost' -> HOST oscReceiver(osc/OscReceiver)
+'7778' -> PORT oscReceiver()
+oscReceiver() OUT -> IN ConsoleLogger(core/Output)
