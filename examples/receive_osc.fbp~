@@ -1,6 +1,0 @@
-'127.0.0.1' -> IP oscReceiver(osc/OscReceiver)
-'7778' -> PORT oscReceiver()
-'/hola' -> RUTA oscReceiver()
-'s' -> TYPE oscReceiver()
-'movida' -> MSG oscReceiver()
-oscReceiver() SALIDA -> IN ConsoleLogger(core/Output)

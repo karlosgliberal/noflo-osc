@@ -1,4 +1,0 @@
-'127.0.0.1' -> IP ConnectOSC(osc/OscSend)
-'7777' -> PUERTO ConnectOSC()
-'/hola' -> MSG ConnectOSC()
-ConnectOSC() SALIDA -> IN ConsoleLogger(core/Output)
